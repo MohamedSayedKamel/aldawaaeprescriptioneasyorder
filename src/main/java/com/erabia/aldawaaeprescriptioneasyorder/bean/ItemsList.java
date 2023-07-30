@@ -10,6 +10,10 @@ public class ItemsList {
 	@Expose
 	@SerializedName("qty")
 	private long qty;
+	@Expose
+	@SerializedName("qty")
+	private String  status;
+	
 	public String getItem() {
 		return item;
 	}
@@ -21,6 +25,12 @@ public class ItemsList {
 	}
 	public void setQty(long qty) {
 		this.qty = qty;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

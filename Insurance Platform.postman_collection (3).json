@@ -1,0 +1,1068 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Insurance Platform",
+		"_postman_id": "e07b7e3f-baad-77ea-c2b3-e50540665b2b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Insurance Companies",
+			"request": {
+				"url": "https://webservices.al-dawaa.com/InsuranceApi/InsuranceCompanies/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "01.0",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "en",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "countryCode",
+							"value": "966",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "0543371579",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "This API will return a list of the acitve insurance companies"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Cash Requests",
+			"request": {
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestCashList/?customerExternalId=1&page=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestCashList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "01.0",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "en",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "countryCode",
+							"value": "966",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "0543371579",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "This API will return a list of customer cash requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Insurance Requests",
+			"request": {
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestInsuranceList/?customerExternalId=1&page=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestInsuranceList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "01.0",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "en",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "countryCode",
+							"value": "966",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "0543371579",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "This API will return a list of the customer insuracne requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Health Requests",
+			"request": {
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestHealthList/?customerExternalId=1&page=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestHealthList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "01.0",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "en",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "countryCode",
+							"value": "966",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "0543371579",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "This API will return a list of the customer health requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Wasfaty Requests",
+			"request": {
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestWasfatyList/?customerExternalId=1&page=2",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestWasfatyList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "01.0",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "en",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "countryCode",
+							"value": "966",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "0543371579",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "This API will return a list of the customer wasfaty requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Easy Order Requests",
+			"request": {
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestEasyOrderList/?customerExternalId=1&page=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestEasyOrderList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "01.0",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "en",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "countryCode",
+							"value": "966",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "0543371579",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "This API will return a list of the easy order requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Delivery Cities List",
+			"request": {
+				"url": "https://webservices.al-dawaa.com/InsuranceApi/DeliveryCities/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "01.0",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "en",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "countryCode",
+							"value": "966",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "0543371579",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "This API will return a list of the acitve delviery cities"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pick Up Cities List",
+			"request": {
+				"url": "https://webservices.al-dawaa.com/InsuranceApi/PickUpCities/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "01.0",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "en",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "countryCode",
+							"value": "966",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "0543371579",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "This API will return a list of the acitve pick up cities"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Delivery Districts List",
+			"request": {
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/DeliveryDistricts/?cityId=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"DeliveryDistricts",
+						""
+					],
+					"query": [
+						{
+							"key": "cityId",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cityId\": 1\n}"
+				},
+				"description": "This API will return a list of the acitve delviery districts"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pick Up Districts List",
+			"request": {
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/PickUpDistricts/?cityEN=Abha",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"PickUpDistricts",
+						""
+					],
+					"query": [
+						{
+							"key": "cityEN",
+							"value": "Abha",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cityId\": 1\n}"
+				},
+				"description": "This API will return a list of the acitve Pick Up districts"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pick Up Stores List",
+			"request": {
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/PickUpStores/?cityEN=Abha&districtEN=Al-Badeea&gps=26.3306806, 50.20401433&wasfaty=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"PickUpStores",
+						""
+					],
+					"query": [
+						{
+							"key": "cityEN",
+							"value": "Abha",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "districtEN",
+							"value": "Al-Badeea",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "gps",
+							"value": "26.3306806, 50.20401433",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "wasfaty",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cityId\": 1\n}"
+				},
+				"description": "This API will return a list of the acitve Pick Up Stores. You either can filter by City or by City+District. or by gps\ninscase you seache by gps then City and District Paramters will be ignored and a list of pharmacies will return maximum 20 store within 20KM from GPS location"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Delivery Slots List",
+			"request": {
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/DeliverySlots/?storeCode=E001&city=Dammam&distrct=Azzuhur&requestType=cash",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"DeliverySlots",
+						""
+					],
+					"query": [
+						{
+							"key": "storeCode",
+							"value": "E001",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "city",
+							"value": "Dammam",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "distrct",
+							"value": "Azzuhur",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "requestType",
+							"value": "cash",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cityId\": 1\n}"
+				},
+				"description": "This API will return a list delivery slots dpending on the selected delivery store (the delivery store will comes from delivery city+delviery district compination)"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - CASH",
+			"request": {
+				"url": "https://webservices.al-dawaa.com/InsuranceApi/RequestCash/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"paymentMethod\":\"CASH/ONLINE\",\n\t\"attachment1\":\"MANDOTARY BASE64\",\n\t\"attachment2\":\"NOT MANDOTARY BASE64\",\n\t\"attachment3\":\"NOT MANDOTARY BASE64\",\n\t\"title\":\"request title\",\n\t\"deliveryMethod\": \"D\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"\"\n\t\n}"
+				},
+				"description": "CASH REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - INSURANCE",
+			"request": {
+				"url": "https://webservices.al-dawaa.com/InsuranceApi/RequestInsurance/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"Member\": {\n\t\t\t\"name\":\"Member 1\",\n\t\t\t\"nId\":\"2332334442\",\n\t\t\t\"insuranceCompanyId\":1\n\t},\n\t\"paymentMethod\":\"CASH/ONLINE\",\n\t\"attachment1\":\"MANDOTARY BASE64\",\n\t\"attachment2\":\"NOT MANDOTARY BASE64\",\n\t\"attachment3\":\"NOT MANDOTARY BASE64\",\n\t\"attachment4\":\"NOT MANDOTARY BASE64\",\n\t\"title\":\"request title\",\n\t\"deliveryMethod\": \"D\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"\"\n}"
+				},
+				"description": "INSURANCE REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - EASY ORDER",
+			"request": {
+				"url": "https://webservices.al-dawaa.com/InsuranceApi/RequestEasyOrder/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"Items\": [\n\t\t{\n\t\t\t\"title\":\"item 1\",\n\t\t\t\"desc\":\"this is a desc for item 1\",\n\t\t\t\"photo\":\"base64\",\n\t\t\t\"qty\": 2\n\t\t},\n\t\t{\n\t\t\t\"title\":\"item 2\",\n\t\t\t\"desc\":\"this is a desc for item 2\",\n\t\t\t\"photo\":\"base64\",\n\t\t\t\"qty\": 6\n\t\t},\n\t\t{\n\t\t\t\"title\":\"item 3\",\n\t\t\t\"desc\":\"this is a desc for item 3\",\n\t\t\t\"photo\":\"base64\",\n\t\t\t\"qty\": 6\n\t\t}\n\t],\n\t\"deliveryMethod\": \"D\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"\"\n\t\n}"
+				},
+				"description": "EASY ORDER REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - HEALTH",
+			"request": {
+				"url": "https://webservices.al-dawaa.com/InsuranceApi/RequestHealth/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"nId\":\"1122334455\",\n\t\"prescriptionId\":\"1231234\",\n\t\"deliveryMethod\": \"C\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"0543371579\"\n\t\n}"
+				},
+				"description": "HAELTH REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - WASFATY",
+			"request": {
+				"url": "https://webservices.al-dawaa.com/InsuranceApi/RequestWasfaty/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"nId\":\"1122334455\",\n\t\"prescriptionId\":\"1231234\",\n\t\"deliveryMethod\": \"C\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"0543371579\"\n\t\n}"
+				},
+				"description": "HAELTH REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "CHECK WASFATY VALIDATOR",
+			"request": {
+				"url": "https://webservices.al-dawaa.com/InsuranceApi/RequestWasfaty/Inquiry.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"nId\":\"1122334455\",\n\t\"prescriptionId\":\"1231234\",\n\t\"City\": \"Dammam\",\n\t\"District\": \"Az Zuhur\",\n\t\"deliveryMethod\": \"C\"\n}"
+				},
+				"description": "USE THIS API TO VAILDATE USER INPUT WHEN IT COMES TO NATIONAL ID & PRESPECTION NUMBER."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Last Member Data for Insurance Request",
+			"request": {
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestInsuranceLastMember/?customerExternalId=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestInsuranceLastMember",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU",
+						"description": ""
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"Member\": {\n\t\t\t\"name\":\"Member 1\",\n\t\t\t\"nId\":\"2332334442\",\n\t\t\t\"insuranceCompanyId\":1\n\t}\n}"
+				},
+				"description": "USE THIS API TO GET THE LIST ENTERED MEMBER FOR INSURANCE REQEUSTS"
+			},
+			"response": []
+		}
+	]
+}

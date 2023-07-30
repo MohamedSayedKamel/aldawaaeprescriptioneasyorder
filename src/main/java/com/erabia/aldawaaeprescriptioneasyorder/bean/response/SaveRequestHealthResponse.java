@@ -3,7 +3,7 @@ package com.erabia.aldawaaeprescriptioneasyorder.bean.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SaveRequestEasyOrderResponse{
+public class SaveRequestHealthResponse {
 	@Expose
 	@SerializedName("status")
 	private boolean status;

@@ -5,56 +5,94 @@ import java.util.Optional;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.AldawaaEprescriptionEasyOrderConfigBean;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.request.CheckWasfatyValidatiorRequest;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestCashBean;
-import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestInsuranceMemberRequest;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestEasyOrderRequest;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestHealthRequest;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestInsuranceRequest;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestWasfatyRequest;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CheckWasfatyValidatiorResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CustomerCashRequestResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CustomerEasyOrderRequestResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CustomerHealthRequestResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CustomerInsuranceRequestResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CustomerWasfatyRequestResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.DeliveryDistrictsResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.DeliverySlotsResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.InsuranceCompanyResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.InsuranceMembersListResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.LastMemberDataForInsuranceResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.PickUpCityResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.PickUpDistrictsResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.PickUpStoresResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.SaveInsuranceMembersResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.SaveRequestCashResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.SaveRequestEasyOrderResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.SaveRequestHealthResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.SaveRequestWasfatyResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.exception.AldawaaEprescriptionEasyOrderException;
+import com.erabia.aldawaaeprescriptioneasyorder.exception.enums.RequestType;
 
 public interface AldawaaEprescriptionEasyOrderService {
 
 	public Optional<InsuranceCompanyResponse> getInsuranceCompanies(AldawaaEprescriptionEasyOrderConfigBean configBean)
 			throws AldawaaEprescriptionEasyOrderException;
+	
+	public Optional<CustomerCashRequestResponse> getCustomerCashRequest(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			String customerExternalId,String page) throws AldawaaEprescriptionEasyOrderException;
+	
+	public Optional<CustomerInsuranceRequestResponse> getCustomerInsuranceRequest(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			String customerExternalId,String page) throws AldawaaEprescriptionEasyOrderException;
+	
+	public Optional<CustomerHealthRequestResponse> getCustomerHealthRequest(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			String customerExternalId,String page) throws AldawaaEprescriptionEasyOrderException;
+	
+	public Optional<CustomerWasfatyRequestResponse> getCustomerWasfatyRequest(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			String customerExternalId,String page) throws AldawaaEprescriptionEasyOrderException;
+	
+	public Optional<CustomerEasyOrderRequestResponse> getCustomerEasyOrderRequest(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			String customerExternalId,String page) throws AldawaaEprescriptionEasyOrderException;
 
-	public Optional<InsuranceCompanyResponse> getDeliveryCities(AldawaaEprescriptionEasyOrderConfigBean configBean)
+	public Optional<InsuranceCompanyResponse> getDeliveryCitiesList(AldawaaEprescriptionEasyOrderConfigBean configBean)
 			throws AldawaaEprescriptionEasyOrderException;
 
-	public Optional<PickUpCityResponse> getPickUpCities(AldawaaEprescriptionEasyOrderConfigBean configBean)
+	public Optional<PickUpCityResponse> getPickUpCitiesList(AldawaaEprescriptionEasyOrderConfigBean configBean)
 			throws AldawaaEprescriptionEasyOrderException;
 
-	public Optional<DeliveryDistrictsResponse> getDeliveryDistricts(AldawaaEprescriptionEasyOrderConfigBean configBean,
+	public Optional<DeliveryDistrictsResponse> getDeliveryDistrictsList(AldawaaEprescriptionEasyOrderConfigBean configBean,
 			String cityId) throws AldawaaEprescriptionEasyOrderException;
 
-	public Optional<PickUpDistrictsResponse> getPickUpDistricts(AldawaaEprescriptionEasyOrderConfigBean configBean,
+	public Optional<PickUpDistrictsResponse> getPickUpDistrictsList(AldawaaEprescriptionEasyOrderConfigBean configBean,
 			String cityEN) throws AldawaaEprescriptionEasyOrderException;
 
-	public Optional<PickUpStoresResponse> getPickUpStores(AldawaaEprescriptionEasyOrderConfigBean configBean,
+	public Optional<PickUpStoresResponse> getPickUpStoresList(AldawaaEprescriptionEasyOrderConfigBean configBean,
 			String cityEN, String districtEN, String gps) throws AldawaaEprescriptionEasyOrderException;
 
-	public Optional<DeliverySlotsResponse> getDeliverySlots(AldawaaEprescriptionEasyOrderConfigBean configBean,
-			String storeCode, String city, String distrct) throws AldawaaEprescriptionEasyOrderException;
+	public Optional<DeliverySlotsResponse> getDeliverySlotsList(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			String storeCode, String city, String distrct,RequestType requestType) throws AldawaaEprescriptionEasyOrderException;
 
 	public Optional<InsuranceMembersListResponse> getInsuranceMembersList(AldawaaEprescriptionEasyOrderConfigBean configBean,
 			String customerExternalId)throws AldawaaEprescriptionEasyOrderException;
 
-	public Optional<SaveInsuranceMembersResponse> saveInsuranceMembers(AldawaaEprescriptionEasyOrderConfigBean configBean,
-			SaveRequestInsuranceMemberRequest request)throws AldawaaEprescriptionEasyOrderException;
+	public Optional<SaveInsuranceMembersResponse> saveRequestInsurance(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			SaveRequestInsuranceRequest request)throws AldawaaEprescriptionEasyOrderException;
 
 	public Optional<SaveRequestCashResponse> saveRequestCash(AldawaaEprescriptionEasyOrderConfigBean configBean,
 			SaveRequestCashBean request) throws AldawaaEprescriptionEasyOrderException;
 
 	public Optional<CheckWasfatyValidatiorResponse> checkWasfatyValidatior(AldawaaEprescriptionEasyOrderConfigBean configBean,
 			CheckWasfatyValidatiorRequest request)throws AldawaaEprescriptionEasyOrderException;
+
+	public Optional<SaveRequestEasyOrderResponse> saveRequestEasyOrder(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			SaveRequestEasyOrderRequest request)throws AldawaaEprescriptionEasyOrderException;
+
+	public Optional<SaveRequestHealthResponse> saveRequestHealth(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			SaveRequestHealthRequest request) throws AldawaaEprescriptionEasyOrderException;
+
+	public Optional<SaveRequestWasfatyResponse> saveRequestWasfaty(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			SaveRequestWasfatyRequest request) throws AldawaaEprescriptionEasyOrderException;
 	
-	public Optional<SaveRequestEasyOrderResponse> saveRequestEasyOrder(AldawaaEprescriptionEasyOrderConfigBean configBean , 
-			String customerExternalId)throws AldawaaEprescriptionEasyOrderException;
+	public Optional<LastMemberDataForInsuranceResponse> getLastMemberDataForInsuranceRequest(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			String customerExternalId) throws AldawaaEprescriptionEasyOrderException;
 	
+
 }
+

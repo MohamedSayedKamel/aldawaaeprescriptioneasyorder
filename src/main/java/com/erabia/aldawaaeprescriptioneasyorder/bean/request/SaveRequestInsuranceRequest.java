@@ -3,13 +3,17 @@ package com.erabia.aldawaaeprescriptioneasyorder.bean.request;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SaveRequestCashBean {
+public class SaveRequestInsuranceRequest {
 	@Expose
 	@SerializedName("Customer")
 	private CustomerRequestBean customer;
 	@Expose
 	@SerializedName("Address")
 	private AddressRequestBean address;
+	@Expose
+	@SerializedName("Member")
+	private MemberRequestBean member;
+	
 	@Expose
 	@SerializedName("paymentMethod")
 	private String paymentMethod;
@@ -22,6 +26,9 @@ public class SaveRequestCashBean {
 	@Expose
 	@SerializedName("attachment3")
 	private String attachment3;
+	@Expose
+	@SerializedName("attachment4")
+	private String attachment4;
 	@Expose
 	@SerializedName("title")
 	private String title;
@@ -43,17 +50,19 @@ public class SaveRequestCashBean {
 	@Expose
 	@SerializedName("mobileNumber")
 	private String mobileNumber;
-	public SaveRequestCashBean(CustomerRequestBean customer, AddressRequestBean address, String paymentMethod,
-			String attachment1, String attachment2, String attachment3, String title, String deliveryMethod,
-			String deliverySlotDate, String deliverySlotTime, String requestComments, String storeCode,
-			String mobileNumber) {
+	public SaveRequestInsuranceRequest(CustomerRequestBean customer, AddressRequestBean address,
+			MemberRequestBean member, String paymentMethod, String attachment1, String attachment2, String attachment3,
+			String attachment4, String title, String deliveryMethod, String deliverySlotDate, String deliverySlotTime,
+			String requestComments, String storeCode, String mobileNumber) {
 		super();
 		this.customer = customer;
 		this.address = address;
+		this.member = member;
 		this.paymentMethod = paymentMethod;
 		this.attachment1 = attachment1;
 		this.attachment2 = attachment2;
 		this.attachment3 = attachment3;
+		this.attachment4 = attachment4;
 		this.title = title;
 		this.deliveryMethod = deliveryMethod;
 		this.deliverySlotDate = deliverySlotDate;
@@ -73,6 +82,12 @@ public class SaveRequestCashBean {
 	}
 	public void setAddress(AddressRequestBean address) {
 		this.address = address;
+	}
+	public MemberRequestBean getMember() {
+		return member;
+	}
+	public void setMember(MemberRequestBean member) {
+		this.member = member;
 	}
 	public String getPaymentMethod() {
 		return paymentMethod;
@@ -97,6 +112,12 @@ public class SaveRequestCashBean {
 	}
 	public void setAttachment3(String attachment3) {
 		this.attachment3 = attachment3;
+	}
+	public String getAttachment4() {
+		return attachment4;
+	}
+	public void setAttachment4(String attachment4) {
+		this.attachment4 = attachment4;
 	}
 	public String getTitle() {
 		return title;
@@ -140,7 +161,6 @@ public class SaveRequestCashBean {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	
 	
 	
 

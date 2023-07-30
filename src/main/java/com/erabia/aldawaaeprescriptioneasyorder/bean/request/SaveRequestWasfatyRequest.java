@@ -3,7 +3,7 @@ package com.erabia.aldawaaeprescriptioneasyorder.bean.request;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SaveRequestCashBean {
+public class SaveRequestWasfatyRequest {
 	@Expose
 	@SerializedName("Customer")
 	private CustomerRequestBean customer;
@@ -11,20 +11,11 @@ public class SaveRequestCashBean {
 	@SerializedName("Address")
 	private AddressRequestBean address;
 	@Expose
-	@SerializedName("paymentMethod")
-	private String paymentMethod;
+	@SerializedName("nId")
+	private String nId;
 	@Expose
-	@SerializedName("attachment1")
-	private String attachment1;
-	@Expose
-	@SerializedName("attachment2")
-	private String attachment2;
-	@Expose
-	@SerializedName("attachment3")
-	private String attachment3;
-	@Expose
-	@SerializedName("title")
-	private String title;
+	@SerializedName("prescriptionId")
+	private String prescriptionId;
 	@Expose
 	@SerializedName("deliveryMethod")
 	private String deliveryMethod;
@@ -43,18 +34,15 @@ public class SaveRequestCashBean {
 	@Expose
 	@SerializedName("mobileNumber")
 	private String mobileNumber;
-	public SaveRequestCashBean(CustomerRequestBean customer, AddressRequestBean address, String paymentMethod,
-			String attachment1, String attachment2, String attachment3, String title, String deliveryMethod,
-			String deliverySlotDate, String deliverySlotTime, String requestComments, String storeCode,
-			String mobileNumber) {
+	
+	public SaveRequestWasfatyRequest(CustomerRequestBean customer, AddressRequestBean address, String nId,
+			String prescriptionId, String deliveryMethod, String deliverySlotDate, String deliverySlotTime,
+			String requestComments, String storeCode, String mobileNumber) {
 		super();
 		this.customer = customer;
 		this.address = address;
-		this.paymentMethod = paymentMethod;
-		this.attachment1 = attachment1;
-		this.attachment2 = attachment2;
-		this.attachment3 = attachment3;
-		this.title = title;
+		this.nId = nId;
+		this.prescriptionId = prescriptionId;
 		this.deliveryMethod = deliveryMethod;
 		this.deliverySlotDate = deliverySlotDate;
 		this.deliverySlotTime = deliverySlotTime;
@@ -74,35 +62,17 @@ public class SaveRequestCashBean {
 	public void setAddress(AddressRequestBean address) {
 		this.address = address;
 	}
-	public String getPaymentMethod() {
-		return paymentMethod;
+	public String getnId() {
+		return nId;
 	}
-	public void setPaymentMethod(String paymentMethod) {
-		this.paymentMethod = paymentMethod;
+	public void setnId(String nId) {
+		this.nId = nId;
 	}
-	public String getAttachment1() {
-		return attachment1;
+	public String getPrescriptionId() {
+		return prescriptionId;
 	}
-	public void setAttachment1(String attachment1) {
-		this.attachment1 = attachment1;
-	}
-	public String getAttachment2() {
-		return attachment2;
-	}
-	public void setAttachment2(String attachment2) {
-		this.attachment2 = attachment2;
-	}
-	public String getAttachment3() {
-		return attachment3;
-	}
-	public void setAttachment3(String attachment3) {
-		this.attachment3 = attachment3;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setPrescriptionId(String prescriptionId) {
+		this.prescriptionId = prescriptionId;
 	}
 	public String getDeliveryMethod() {
 		return deliveryMethod;
@@ -139,9 +109,5 @@ public class SaveRequestCashBean {
 	}
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
-	}
-	
-	
-	
-
+	}	
 }

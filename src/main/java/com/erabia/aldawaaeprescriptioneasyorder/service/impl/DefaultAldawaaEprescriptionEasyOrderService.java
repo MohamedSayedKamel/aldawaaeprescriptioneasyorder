@@ -13,21 +13,33 @@ import org.springframework.stereotype.Service;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.AldawaaEprescriptionEasyOrderConfigBean;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.request.CheckWasfatyValidatiorRequest;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestCashBean;
-import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestInsuranceMemberRequest;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestEasyOrderRequest;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestHealthRequest;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestInsuranceRequest;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.request.SaveRequestWasfatyRequest;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CheckWasfatyValidatiorResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CustomerCashRequestResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CustomerEasyOrderRequestResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CustomerHealthRequestResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CustomerInsuranceRequestResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.CustomerWasfatyRequestResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.DeliveryDistrictsResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.DeliverySlotsResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.InsuranceCompanyResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.InsuranceMembersListResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.LastMemberDataForInsuranceResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.PickUpCityResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.PickUpDistrictsResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.PickUpStoresResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.SaveInsuranceMembersResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.SaveRequestCashResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.bean.response.SaveRequestEasyOrderResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.SaveRequestHealthResponse;
+import com.erabia.aldawaaeprescriptioneasyorder.bean.response.SaveRequestWasfatyResponse;
 import com.erabia.aldawaaeprescriptioneasyorder.exception.AldawaaEprescriptionEasyOrderException;
 import com.erabia.aldawaaeprescriptioneasyorder.exception.WebServiceApiUnirestException;
 import com.erabia.aldawaaeprescriptioneasyorder.exception.enums.AldawaaEprescriptionEasyOrderExceptionType;
+import com.erabia.aldawaaeprescriptioneasyorder.exception.enums.RequestType;
 import com.erabia.aldawaaeprescriptioneasyorder.service.AldawaaEprescriptionEasyOrderService;
 import com.erabia.aldawaaeprescriptioneasyorder.util.WebServiceApiUnirestUtil;
 import com.google.common.base.Preconditions;
@@ -42,6 +54,17 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 	private static final String BASEURL_IS_NULL ="base url is null";
 	private static final String CLIENTID_IS_NULL ="client id is null";
 	private static final String CLIENT_SECRET_IS_NULL ="client secret is null";
+	private static final String CUSTOMER_EXTERNAL_ID ="customerExternalId";
+	private static final String CUSTOMER_EXTERNAL_ID_IS_NULL ="customer External Id is null";
+	private static final String PAGE_IS_NULL = "page is null";
+	private static final String CITY_IS_NULL = "city en is null";
+	private static final String CITY_ID_IS_NULL ="city id is null";
+	private static final String REQUEST_IS_NULL = "request is null";
+	private static final String DISTRICT_EN_IS_NULL = "district en is null";
+	private static final String GPS_IS_NULL = "gps is null";
+	private static final String STORE_CODE_IS_NULL = "storeCode is null";
+	private static final String REQUEST_TYPE_IS_NULL = "request Type is null";
+	
 	private static final Gson GSON = (new GsonBuilder().setPrettyPrinting()).create();
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultAldawaaEprescriptionEasyOrderService.class);
 
@@ -75,7 +98,7 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 	
 
 	@Override
-	public Optional<InsuranceCompanyResponse> getDeliveryCities(AldawaaEprescriptionEasyOrderConfigBean configBean) throws AldawaaEprescriptionEasyOrderException {
+	public Optional<InsuranceCompanyResponse> getDeliveryCitiesList(AldawaaEprescriptionEasyOrderConfigBean configBean) throws AldawaaEprescriptionEasyOrderException {
 		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
 		final Map<String, String> header = setHeader(configBean);
 		header.put(CONTENT_TYPE, CONTENT_TYPE_OTHER);
@@ -100,7 +123,7 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 	}
 
 	@Override
-	public Optional<PickUpCityResponse> getPickUpCities(AldawaaEprescriptionEasyOrderConfigBean configBean) throws AldawaaEprescriptionEasyOrderException {
+	public Optional<PickUpCityResponse> getPickUpCitiesList(AldawaaEprescriptionEasyOrderConfigBean configBean) throws AldawaaEprescriptionEasyOrderException {
 		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
 		final Map<String, String> header = setHeader(configBean);
 		header.put(CONTENT_TYPE, CONTENT_TYPE_OTHER);
@@ -125,17 +148,15 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 	}
 
 	@Override
-	public Optional<DeliveryDistrictsResponse> getDeliveryDistricts(AldawaaEprescriptionEasyOrderConfigBean configBean, String cityId)throws AldawaaEprescriptionEasyOrderException {
+	public Optional<DeliveryDistrictsResponse> getDeliveryDistrictsList(AldawaaEprescriptionEasyOrderConfigBean configBean, String cityId)throws AldawaaEprescriptionEasyOrderException {
 		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(!Strings.isBlank(cityId),CITY_ID_IS_NULL);
 		final Map<String, String> header = setHeader(configBean);
 		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
 		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/DeliveryDistricts/").toString();
-		
 		final Map<String, Object> parameter = new HashMap<>();
 		parameter.put("cityId", cityId);
-		
 		DeliveryDistrictsResponse response =null;
-		
 		try
 		{
 			LOG.info("get Delivery Districts--> sending request");
@@ -144,7 +165,6 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 		}catch (WebServiceApiUnirestException e) {
 			throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST, e.getMessage(), e.getRequestData(), e.getResponseData(),e.getHeaders(),e.getBaseURL(), null, null);
 		}
-		
 		if(response.getStatus())
 		{
 			LOG.info("get Delivery Districts status --> success");
@@ -155,13 +175,13 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 	}
 
 	@Override
-	public Optional<PickUpDistrictsResponse> getPickUpDistricts(AldawaaEprescriptionEasyOrderConfigBean configBean, String cityEN)
+	public Optional<PickUpDistrictsResponse> getPickUpDistrictsList(AldawaaEprescriptionEasyOrderConfigBean configBean, String cityEN)
 			throws AldawaaEprescriptionEasyOrderException {
 		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(!Strings.isBlank(cityEN), CITY_IS_NULL);
 		final Map<String, String> header = setHeader(configBean);
 		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
 		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/PickUpDistricts/").toString();
-		
 		final Map<String, Object> parameter = new HashMap<>();
 		parameter.put("cityEN", cityEN);
 		PickUpDistrictsResponse response =null;
@@ -184,9 +204,12 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 	}
 
 	@Override
-	public Optional<PickUpStoresResponse> getPickUpStores(AldawaaEprescriptionEasyOrderConfigBean configBean, String cityEN, String districtEN, String gps)
+	public Optional<PickUpStoresResponse> getPickUpStoresList(AldawaaEprescriptionEasyOrderConfigBean configBean, String cityEN, String districtEN, String gps)
 			throws AldawaaEprescriptionEasyOrderException {
 		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(!Strings.isBlank(cityEN), CITY_IS_NULL);
+		Preconditions.checkArgument(!Strings.isBlank(districtEN), DISTRICT_EN_IS_NULL);
+		Preconditions.checkArgument(!Strings.isBlank(gps), GPS_IS_NULL);
 		final Map<String, String> header = setHeader(configBean);
 		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
 		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/PickUpStores/").toString();
@@ -214,9 +237,12 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 	}
 	
 	@Override
-	public Optional<DeliverySlotsResponse> getDeliverySlots(AldawaaEprescriptionEasyOrderConfigBean configBean,
-			String storeCode,String city,String distrct) throws AldawaaEprescriptionEasyOrderException {
+	public Optional<DeliverySlotsResponse> getDeliverySlotsList(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			String storeCode,String city,String distrct,RequestType requestType) throws AldawaaEprescriptionEasyOrderException {
 		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(!Strings.isBlank(storeCode), STORE_CODE_IS_NULL);
+		Preconditions.checkArgument(!Strings.isBlank(city), CITY_IS_NULL);
+		Preconditions.checkArgument(requestType != null,REQUEST_TYPE_IS_NULL);
 		final Map<String, String> header = setHeader(configBean);
 		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
 		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/DeliverySlots/").toString();
@@ -225,7 +251,7 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 		parameter.put("storeCode", storeCode);
 		parameter.put("city", city);
 		parameter.put("distrct", distrct);
-		
+		parameter.put("requestType", requestType.getCode());
 		
 		DeliverySlotsResponse response =null;
 		
@@ -251,12 +277,13 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 			AldawaaEprescriptionEasyOrderConfigBean configBean, String customerExternalId)
 					throws AldawaaEprescriptionEasyOrderException {
 		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(!Strings.isBlank(customerExternalId), CUSTOMER_EXTERNAL_ID_IS_NULL);
 		final Map<String, String> header = setHeader(configBean);
 		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
 		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/InsuranceMembersList/").toString();
 		
 		final Map<String, Object> parameter = new HashMap<>();
-		parameter.put("customerExternalId", customerExternalId);
+		parameter.put(CUSTOMER_EXTERNAL_ID, customerExternalId);
 		
 		InsuranceMembersListResponse response =null;
 		
@@ -283,19 +310,20 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 
 
 	@Override
-	public Optional<SaveInsuranceMembersResponse> saveInsuranceMembers(
-			AldawaaEprescriptionEasyOrderConfigBean configBean, SaveRequestInsuranceMemberRequest request)
+	public Optional<SaveInsuranceMembersResponse> saveRequestInsurance(
+			AldawaaEprescriptionEasyOrderConfigBean configBean, SaveRequestInsuranceRequest request)
 			throws AldawaaEprescriptionEasyOrderException {
 		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(request !=null, REQUEST_IS_NULL);
 		final Map<String, String> header = setHeader(configBean);
 		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
-		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/InsuranceMembers/").toString();
+		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestInsurance/").toString();
 		
 		SaveInsuranceMembersResponse response = null;
 		
 		try
 		{
-			LOG.info("save Insurance Members --> sending request");
+			LOG.info("save Request Insurance  --> sending request");
 			response= WebServiceApiUnirestUtil.post(baseURL, header, GSON.toJson(request),SaveInsuranceMembersResponse.class);
 
 		}catch (WebServiceApiUnirestException e) {
@@ -304,10 +332,10 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 		
 		if(response.getStatus())
 		{
-			LOG.info("save Insurance Members  status --> success");
+			LOG.info("save Request Insurance  status --> success");
 			return Optional.ofNullable(response);
 		}
-		LOG.info("save Insurance Members --> bad request");
+		LOG.info("save Request Insurance  --> bad request");
 		throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST,null, GSON.toJson(request),  GSON.toJson(response),GSON.toJson(header),baseURL, null, null);
 		
 		
@@ -333,9 +361,10 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 	public Optional<SaveRequestCashResponse> saveRequestCash(AldawaaEprescriptionEasyOrderConfigBean configBean,
 			SaveRequestCashBean request) throws AldawaaEprescriptionEasyOrderException {
 		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(request !=null, REQUEST_IS_NULL);
 		final Map<String, String> header = setHeader(configBean);
 		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
-		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestInsurance/").toString();
+		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestCash/").toString();
 
 		SaveRequestCashResponse response = null;
 		try
@@ -363,6 +392,7 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 			AldawaaEprescriptionEasyOrderConfigBean configBean, CheckWasfatyValidatiorRequest request)
 			throws AldawaaEprescriptionEasyOrderException {
 		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(request !=null, REQUEST_IS_NULL);
 		final Map<String, String> header = setHeader(configBean);
 		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
 		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestWasfaty/Inquiry.php").toString();
@@ -389,18 +419,17 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 
 	@Override
 	public Optional<SaveRequestEasyOrderResponse> saveRequestEasyOrder(
-			AldawaaEprescriptionEasyOrderConfigBean configBean,String customerExternalId) throws AldawaaEprescriptionEasyOrderException {
+			AldawaaEprescriptionEasyOrderConfigBean configBean,SaveRequestEasyOrderRequest request) throws AldawaaEprescriptionEasyOrderException {
+		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(request !=null, REQUEST_IS_NULL);
 		final Map<String, String> header = setHeader(configBean);
 		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
-		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/InsuranceMembersList/").toString();
-		
-		final Map<String, Object> parameter = new HashMap<>();
-		parameter.put("customerExternalId", customerExternalId);
+		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestEasyOrder/").toString();
 		SaveRequestEasyOrderResponse response =null;
 		try
 		{
 			LOG.info("get Request Easy Order --> sending request");
-			response= WebServiceApiUnirestUtil.get(baseURL, header, parameter,SaveRequestEasyOrderResponse.class);
+			response= WebServiceApiUnirestUtil.post(baseURL, header, GSON.toJson(request),SaveRequestEasyOrderResponse.class);
 
 		}catch (WebServiceApiUnirestException e) {
 			throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST, e.getMessage(), e.getRequestData(), e.getResponseData(),e.getHeaders(),e.getBaseURL(), null, null);
@@ -412,10 +441,269 @@ public class DefaultAldawaaEprescriptionEasyOrderService  implements AldawaaEpre
 			return Optional.ofNullable(response);
 		}
 		LOG.info("get  Request Easy Order--> bad request");
+		throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST,null, GSON.toJson(request),  GSON.toJson(response),GSON.toJson(header),baseURL, null, null);
+	}
+
+
+
+	@Override
+	public Optional<SaveRequestHealthResponse> saveRequestHealth(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			SaveRequestHealthRequest request) throws AldawaaEprescriptionEasyOrderException {
+		
+		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(request !=null, REQUEST_IS_NULL);
+		final Map<String, String> header = setHeader(configBean);
+		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
+		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestHealth/").toString();
+		SaveRequestHealthResponse response = null;
+		try
+		{
+			LOG.info("save Request Health --> sending request");
+			response= WebServiceApiUnirestUtil.post(baseURL, header, GSON.toJson(request),SaveRequestHealthResponse.class);
+
+		}catch (WebServiceApiUnirestException e) {
+			throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST, e.getMessage(), e.getRequestData(), e.getResponseData(),e.getHeaders(),e.getBaseURL(), null, null);
+		}
+		
+		if(response.getStatus())
+		{
+			LOG.info("save Request Health  status --> success");
+			return Optional.ofNullable(response);
+		}
+		LOG.info("save Request Health --> bad request");
+		throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST,null, GSON.toJson(request),  GSON.toJson(response),GSON.toJson(header),baseURL, null, null);
+	}
+	
+
+	@Override
+	public Optional<SaveRequestWasfatyResponse> saveRequestWasfaty(AldawaaEprescriptionEasyOrderConfigBean configBean,
+			SaveRequestWasfatyRequest request) throws AldawaaEprescriptionEasyOrderException {
+		
+		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(request !=null, REQUEST_IS_NULL);
+		final Map<String, String> header = setHeader(configBean);
+		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
+		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestWasfaty/").toString();
+		SaveRequestWasfatyResponse response = null;
+		try
+		{
+			LOG.info("save Request Wasfaty --> sending request");
+			response= WebServiceApiUnirestUtil.post(baseURL, header, GSON.toJson(request),SaveRequestWasfatyResponse.class);
+
+		}catch (WebServiceApiUnirestException e) {
+			throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST, e.getMessage(), e.getRequestData(), e.getResponseData(),e.getHeaders(),e.getBaseURL(), null, null);
+		}
+		
+		if(response.getStatus())
+		{
+			LOG.info("save Request Wasfaty  status --> success");
+			return Optional.ofNullable(response);
+		}
+		LOG.info("save Request Wasfaty --> bad request");
+		throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST,null, GSON.toJson(request),  GSON.toJson(response),GSON.toJson(header),baseURL, null, null);
+	}
+
+
+
+	@Override
+	public Optional<LastMemberDataForInsuranceResponse> getLastMemberDataForInsuranceRequest(
+			AldawaaEprescriptionEasyOrderConfigBean configBean, String customerExternalId)
+			throws AldawaaEprescriptionEasyOrderException {
+		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(!Strings.isBlank(customerExternalId), CUSTOMER_EXTERNAL_ID_IS_NULL);
+		final Map<String, String> header = setHeader(configBean);
+		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
+		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestInsuranceLastMember/").toString();
+		final Map<String, Object> parameter = new HashMap<>();
+		parameter.put(CUSTOMER_EXTERNAL_ID, customerExternalId);
+		LastMemberDataForInsuranceResponse response =null;
+		try
+		{
+			LOG.info("get Last Member Data For Insurance --> sending request");
+			response= WebServiceApiUnirestUtil.get(baseURL, header, parameter,LastMemberDataForInsuranceResponse.class);
+
+		}catch (WebServiceApiUnirestException e) {
+			throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST, e.getMessage(), e.getRequestData(), e.getResponseData(),e.getHeaders(),e.getBaseURL(), null, null);
+		}
+		
+		if(response.getStatus())
+		{
+			LOG.info("get Last Member Data For Insurance status --> success");
+			return Optional.ofNullable(response);
+		}
+		LOG.info("get Last Member Data For Insurance--> bad request");
+		throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST,null, GSON.toJson(parameter),  GSON.toJson(response),GSON.toJson(header),baseURL, null, null);
+		
+	}
+
+
+
+	@Override
+	public Optional<CustomerCashRequestResponse> getCustomerCashRequest(
+			AldawaaEprescriptionEasyOrderConfigBean configBean, String customerExternalId, String page)
+			throws AldawaaEprescriptionEasyOrderException {
+		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(!Strings.isBlank(customerExternalId), CUSTOMER_EXTERNAL_ID_IS_NULL);
+		Preconditions.checkArgument(!Strings.isBlank(page), PAGE_IS_NULL);
+		final Map<String, String> header = setHeader(configBean);
+		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
+		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestCashList/").toString();
+		final Map<String, Object> parameter = new HashMap<>();
+		parameter.put(CUSTOMER_EXTERNAL_ID, customerExternalId);
+		parameter.put("page", page);
+		CustomerCashRequestResponse response = null;
+		try
+		{
+			LOG.info("get customer cash request --> sending request");
+			response= WebServiceApiUnirestUtil.get(baseURL, header, parameter,CustomerCashRequestResponse.class);
+
+		}catch (WebServiceApiUnirestException e) {
+			throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST, e.getMessage(), e.getRequestData(), e.getResponseData(),e.getHeaders(),e.getBaseURL(), null, null);
+		}
+		
+		if(response.getStatus())
+		{
+			LOG.info("get customer cash request status --> success");
+			return Optional.ofNullable(response);
+		}
+		LOG.info("get customer cash request--> bad request");
 		throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST,null, GSON.toJson(parameter),  GSON.toJson(response),GSON.toJson(header),baseURL, null, null);
 	}
 
 
 
+	@Override
+	public Optional<CustomerInsuranceRequestResponse> getCustomerInsuranceRequest(
+			AldawaaEprescriptionEasyOrderConfigBean configBean, String customerExternalId, String page)
+			throws AldawaaEprescriptionEasyOrderException {
+		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(!Strings.isBlank(customerExternalId), CUSTOMER_EXTERNAL_ID_IS_NULL);
+		Preconditions.checkArgument(!Strings.isBlank(page), PAGE_IS_NULL);
+		final Map<String, String> header = setHeader(configBean);
+		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
+		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestInsuranceList/").toString();
+		final Map<String, Object> parameter = new HashMap<>();
+		parameter.put(CUSTOMER_EXTERNAL_ID, customerExternalId);
+		parameter.put("page", page);
+		CustomerInsuranceRequestResponse response = null;
+		try
+		{
+			LOG.info("get customer Insurance request --> sending request");
+			response= WebServiceApiUnirestUtil.get(baseURL, header, parameter,CustomerInsuranceRequestResponse.class);
+
+		}catch (WebServiceApiUnirestException e) {
+			throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST, e.getMessage(), e.getRequestData(), e.getResponseData(),e.getHeaders(),e.getBaseURL(), null, null);
+		}
+		
+		if(response.getStatus())
+		{
+			LOG.info("get customer Insurance request status --> success");
+			return Optional.ofNullable(response);
+		}
+		LOG.info("get customer Insurance request--> bad request");
+		throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST,null, GSON.toJson(parameter),  GSON.toJson(response),GSON.toJson(header),baseURL, null, null);
+	}
+
+
+
+	@Override
+	public Optional<CustomerHealthRequestResponse> getCustomerHealthRequest(
+			AldawaaEprescriptionEasyOrderConfigBean configBean, String customerExternalId, String page)
+			throws AldawaaEprescriptionEasyOrderException {
+		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(!Strings.isBlank(customerExternalId), CUSTOMER_EXTERNAL_ID_IS_NULL);
+		Preconditions.checkArgument(!Strings.isBlank(page), PAGE_IS_NULL);
+		final Map<String, String> header = setHeader(configBean);
+		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
+		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestHealthList/").toString();
+		final Map<String, Object> parameter = new HashMap<>();
+		parameter.put(CUSTOMER_EXTERNAL_ID, customerExternalId);
+		parameter.put("page", page);
+		CustomerHealthRequestResponse response = null;
+		try
+		{
+			LOG.info("get customer Health request --> sending request");
+			response= WebServiceApiUnirestUtil.get(baseURL, header, parameter,CustomerHealthRequestResponse.class);
+
+		}catch (WebServiceApiUnirestException e) {
+			throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST, e.getMessage(), e.getRequestData(), e.getResponseData(),e.getHeaders(),e.getBaseURL(), null, null);
+		}
+		
+		if(response.getStatus())
+		{
+			LOG.info("get customer Health request status --> success");
+			return Optional.ofNullable(response);
+		}
+		LOG.info("get customer Health request--> bad request");
+		throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST,null, GSON.toJson(parameter),  GSON.toJson(response),GSON.toJson(header),baseURL, null, null);
+	}
+
+
+
+	@Override
+	public Optional<CustomerWasfatyRequestResponse> getCustomerWasfatyRequest(
+			AldawaaEprescriptionEasyOrderConfigBean configBean, String customerExternalId, String page)
+			throws AldawaaEprescriptionEasyOrderException {
+		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(!Strings.isBlank(customerExternalId), CUSTOMER_EXTERNAL_ID_IS_NULL);
+		Preconditions.checkArgument(!Strings.isBlank(page), PAGE_IS_NULL);
+		final Map<String, String> header = setHeader(configBean);
+		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
+		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestWasfatyList/").toString();
+		final Map<String, Object> parameter = new HashMap<>();
+		parameter.put(CUSTOMER_EXTERNAL_ID, customerExternalId);
+		parameter.put("page", page);
+		CustomerWasfatyRequestResponse response = null;
+		try
+		{
+			LOG.info("get customer Wasfaty request --> sending request");
+			response= WebServiceApiUnirestUtil.get(baseURL, header, parameter,CustomerWasfatyRequestResponse.class);
+
+		}catch (WebServiceApiUnirestException e) {
+			throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST, e.getMessage(), e.getRequestData(), e.getResponseData(),e.getHeaders(),e.getBaseURL(), null, null);
+		}
+		
+		if(response.getStatus())
+		{
+			LOG.info("get customer Wasfaty request status --> success");
+			return Optional.ofNullable(response);
+		}
+		LOG.info("get customer Wasfaty request--> bad request");
+		throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST,null, GSON.toJson(parameter),  GSON.toJson(response),GSON.toJson(header),baseURL, null, null);
+	}
+
+
+
+	@Override
+	public Optional<CustomerEasyOrderRequestResponse> getCustomerEasyOrderRequest(
+			AldawaaEprescriptionEasyOrderConfigBean configBean, String customerExternalId, String page)
+			throws AldawaaEprescriptionEasyOrderException {
+		validatAldawaaEprescriptionEasyOrderConfigBean(configBean);
+		Preconditions.checkArgument(!Strings.isBlank(customerExternalId), CUSTOMER_EXTERNAL_ID_IS_NULL);
+		Preconditions.checkArgument(!Strings.isBlank(page), PAGE_IS_NULL);
+		final Map<String, String> header = setHeader(configBean);
+		header.put(CONTENT_TYPE, CONTENT_TYPE_JSON);
+		String baseURL = new StringBuilder().append(configBean.getBaseURL()).append("/RequestEasyOrderList/").toString();
+		final Map<String, Object> parameter = new HashMap<>();
+		parameter.put(CUSTOMER_EXTERNAL_ID, customerExternalId);
+		parameter.put("page", page);
+		CustomerEasyOrderRequestResponse response = null;
+		try
+		{
+			LOG.info("get customer Easy Order request --> sending request");
+			response= WebServiceApiUnirestUtil.get(baseURL, header, parameter,CustomerEasyOrderRequestResponse.class);
+
+		}catch (WebServiceApiUnirestException e) {
+			throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST, e.getMessage(), e.getRequestData(), e.getResponseData(),e.getHeaders(),e.getBaseURL(), null, null);
+		}
+		
+		if(response.getStatus())
+		{
+			LOG.info("get customer Easy Orderrequest status --> success");
+			return Optional.ofNullable(response);
+		}
+		LOG.info("get customer Easy Order request--> bad request");
+		throw new AldawaaEprescriptionEasyOrderException(AldawaaEprescriptionEasyOrderExceptionType.BAD_REQUEST,null, GSON.toJson(parameter),  GSON.toJson(response),GSON.toJson(header),baseURL, null, null);
+	}
 
 }

@@ -1,14 +1,11 @@
 package com.erabia.aldawaaeprescriptioneasyorder.util;
 
 import java.lang.reflect.Type;
-import java.nio.charset.Charset;
-import java.time.LocalDateTime;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.erabia.aldawaaeprescriptioneasyorder.adapters.LocalDateTimeGsonAdapter;
 import com.erabia.aldawaaeprescriptioneasyorder.exception.WebServiceApiUnirestException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,7 +20,6 @@ import kong.unirest.Unirest;
 
 public class WebServiceApiUnirestUtil {
 	private static final Logger LOG = LoggerFactory.getLogger(WebServiceApiUnirestUtil.class);
-	//private static final Gson GSON = (new GsonBuilder().setPrettyPrinting().registerTypeAdapter(LocalDateTime.class,new LocalDateTimeGsonAdapter())).create();
 	private static final Gson GSON = (new GsonBuilder().setPrettyPrinting()).create();
 	private WebServiceApiUnirestUtil() {
 
@@ -89,44 +85,8 @@ public class WebServiceApiUnirestUtil {
 		throw new WebServiceApiUnirestException(response.getStatusText(), requestJSON, response.getBody(),GSON.toJson(headers), URL);
 	}
 
-	public static <T> T post(final String URL, final Map<String, String> headers,  String body, Type clazz)
+	public static <T> T post(final String URL, final Map<String, String> headers, final String body, Type clazz)
 			throws WebServiceApiUnirestException {
-		
-		body = "{\n"
-				+ "	\"customer\": {\n"
-				+ "			\"externalId\": 1,\n"
-				+ "			\"name\":\"Khalil Rumman\",\n"
-				+ "			\"mobileNumber\":\"0543371579\",\n"
-				+ "			\"email\":\"khalil.rumman@gmail.com\",\n"
-				+ "			\"gender\":\"M\"\n"
-				+ "	},\n"
-				+ "	\"address\": {\n"
-				+ "			\"externalId\": 1, \n"
-				+ "			\"addressTitle\":\"HOME\",\n"
-				+ "			\"cityId\":\"this city id should by coming from delivery cities list api\",\n"
-				+ "			\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n"
-				+ "			\"street\":\"user input\",\n"
-				+ "			\"buildingNumber\": \"user input\",\n"
-				+ "			\"apartmentNumber\":\"user input\",\n"
-				+ "			\"mobileNumber\":\"user input\"\n"
-				+ "	},\n"
-				+ "	\"member\": {\n"
-				+ "			\"name\":\"Member 1\",\n"
-				+ "			\"nId\":\"2332334442\",\n"
-				+ "			\"insuranceCompanyId\":1\n"
-				+ "	},\n"
-				+ "	\"attachment1\":\"MANDOTARY BASE64\",\n"
-				+ "	\"attachment2\":\"MANDOTARY BASE64\",\n"
-				+ "	\"attachment3\":\"MANDOTARY BASE64\",\n"
-				+ "	\"title\":\"request title\",\n"
-				+ "	\"deliveryMethod\": \"D\",\n"
-				+ "	\"deliverySlotDate\": \"2023-07-16\",\n"
-				+ "	\"deliverySlotTime\": \"08:00-10:00\",\n"
-				+ "	\"requestComments\": \"\",\n"
-				+ "	\"storeCode\": \"P456\",\n"
-				+ "	\"mobileNumber\": \"\"\n"
-				+ "	\n"
-				+ "}";
 
 		RequestBodyEntity request = Unirest.post(URL).headers(headers).body(body);
 
