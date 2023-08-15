@@ -11,7 +11,7 @@ public class ItemsList {
 	@SerializedName("qty")
 	private long qty;
 	@Expose
-	@SerializedName("qty")
+	@SerializedName("status")
 	private String  status;
 	
 	public String getItem() {

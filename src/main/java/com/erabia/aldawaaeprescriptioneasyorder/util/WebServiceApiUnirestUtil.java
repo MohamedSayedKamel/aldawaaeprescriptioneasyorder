@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import com.erabia.aldawaaeprescriptioneasyorder.exception.WebServiceApiUnirestException;
 import com.google.gson.Gson;
@@ -18,6 +19,7 @@ import kong.unirest.HttpResponse;
 import kong.unirest.RequestBodyEntity;
 import kong.unirest.Unirest;
 
+@Component
 public class WebServiceApiUnirestUtil {
 	private static final Logger LOG = LoggerFactory.getLogger(WebServiceApiUnirestUtil.class);
 	private static final Gson GSON = (new GsonBuilder().setPrettyPrinting()).create();
@@ -45,7 +47,7 @@ public class WebServiceApiUnirestUtil {
 		return sb.toString();
 	}
 
-	public static <T> T get(final String URL, final Map<String, String> headers, final String body, Type clazz)
+	public  <T> T get(final String URL, final Map<String, String> headers, final String body, Type clazz)
 			throws WebServiceApiUnirestException {
 		GetRequest request = Unirest.get(URL + "{body}").headers(headers).routeParam("body", null);
 
@@ -65,7 +67,7 @@ public class WebServiceApiUnirestUtil {
 		throw new WebServiceApiUnirestException(response.getStatusText(), request.toString(), response.getBody(),GSON.toJson(headers), URL);
 	}
 
-	public static <T> T get(final String URL, final Map<String, String> headers, final Map<String, Object> body,
+	public  <T> T get(final String URL, final Map<String, String> headers, final Map<String, Object> body,
 			Type clazz) throws WebServiceApiUnirestException {
 		GetRequest request = Unirest.get(URL).headers(headers).queryString(body);
 
@@ -85,7 +87,7 @@ public class WebServiceApiUnirestUtil {
 		throw new WebServiceApiUnirestException(response.getStatusText(), requestJSON, response.getBody(),GSON.toJson(headers), URL);
 	}
 
-	public static <T> T post(final String URL, final Map<String, String> headers, final String body, Type clazz)
+	public  <T> T post(final String URL, final Map<String, String> headers, final String body, Type clazz)
 			throws WebServiceApiUnirestException {
 
 		RequestBodyEntity request = Unirest.post(URL).headers(headers).body(body);
@@ -103,7 +105,7 @@ public class WebServiceApiUnirestUtil {
 		throw new WebServiceApiUnirestException(response.getStatusText(), requestJSON, response.getBody(),GSON.toJson(headers), URL);
 	}
 
-	public static <T> T put(final String URL, final Map<String, String> headers, final String body, Type clazz)
+	public  <T> T put(final String URL, final Map<String, String> headers, final String body, Type clazz)
 			throws WebServiceApiUnirestException {
 		RequestBodyEntity request = Unirest.put(URL).headers(headers).body(body);
 

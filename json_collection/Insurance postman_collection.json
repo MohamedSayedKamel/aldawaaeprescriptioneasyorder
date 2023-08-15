@@ -1,0 +1,1614 @@
+{
+	"info": {
+		"_postman_id": "20782817-dae9-46bc-9bf8-10d776d92ba7",
+		"name": "Insurance Platform Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Insurance Companies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/InsuranceCompanies/",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"InsuranceCompanies",
+						""
+					]
+				},
+				"description": "This API will return a list of the acitve insurance companies"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Insurance Companies Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/InsuranceCompanies/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"InsuranceCompanies",
+						""
+					]
+				},
+				"description": "This API will return a list of the acitve insurance companies"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Cash Requests",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestCashList/?customerExternalId=1&page=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestCashList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of customer cash requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Cash Requests Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestCashList/?customerExternalId=1&page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestCashList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of customer cash requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Insurance Requests",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestInsuranceList/?customerExternalId=1&page=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestInsuranceList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of the customer insuracne requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Insurance Requests Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestInsuranceList/?customerExternalId=1&page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestInsuranceList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of the customer insuracne requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Health Requests",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestHealthList/?customerExternalId=1&page=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestHealthList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of the customer health requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Health Requests Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestHealthList/?customerExternalId=1&page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestHealthList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of the customer health requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Wasfaty Requests",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestWasfatyList/?customerExternalId=1&page=2",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestWasfatyList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				},
+				"description": "This API will return a list of the customer wasfaty requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Wasfaty Requests Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestWasfatyList/?customerExternalId=1&page=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestWasfatyList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				},
+				"description": "This API will return a list of the customer wasfaty requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Easy Order Requests",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestEasyOrderList/?customerExternalId=1&page=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestEasyOrderList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of the easy order requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Easy Order Requests Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestEasyOrderList/?customerExternalId=1&page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestEasyOrderList",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of the easy order requests"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Delivery Cities List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/DeliveryCities/",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"DeliveryCities",
+						""
+					]
+				},
+				"description": "This API will return a list of the acitve delviery cities"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Delivery Cities List Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/DeliveryCities/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"DeliveryCities",
+						""
+					]
+				},
+				"description": "This API will return a list of the acitve delviery cities"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pick Up Cities List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/PickUpCities/",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"PickUpCities",
+						""
+					]
+				},
+				"description": "This API will return a list of the acitve pick up cities"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pick Up Cities List Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/PickUpCities/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"PickUpCities",
+						""
+					]
+				},
+				"description": "This API will return a list of the acitve pick up cities"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Delivery Districts List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/DeliveryDistricts/?cityId=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"DeliveryDistricts",
+						""
+					],
+					"query": [
+						{
+							"key": "cityId",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of the acitve delviery districts"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Delivery Districts List Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/DeliveryDistricts/?cityId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"DeliveryDistricts",
+						""
+					],
+					"query": [
+						{
+							"key": "cityId",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of the acitve delviery districts"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pick Up Districts List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/PickUpDistricts/?cityEN=Abha",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"PickUpDistricts",
+						""
+					],
+					"query": [
+						{
+							"key": "cityEN",
+							"value": "Abha"
+						}
+					]
+				},
+				"description": "This API will return a list of the acitve Pick Up districts"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pick Up Districts List Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/PickUpDistricts/?cityEN=Abha",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"PickUpDistricts",
+						""
+					],
+					"query": [
+						{
+							"key": "cityEN",
+							"value": "Abha"
+						}
+					]
+				},
+				"description": "This API will return a list of the acitve Pick Up districts"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pick Up Stores List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/PickUpStores/?cityEN=Abha&districtEN=Al-Badeea&gps=26.3306806, 50.20401433&wasfaty=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"PickUpStores",
+						""
+					],
+					"query": [
+						{
+							"key": "cityEN",
+							"value": "Abha"
+						},
+						{
+							"key": "districtEN",
+							"value": "Al-Badeea"
+						},
+						{
+							"key": "gps",
+							"value": "26.3306806, 50.20401433"
+						},
+						{
+							"key": "wasfaty",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of the acitve Pick Up Stores. You either can filter by City or by City+District. or by gps\ninscase you seache by gps then City and District Paramters will be ignored and a list of pharmacies will return maximum 20 store within 20KM from GPS location"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pick Up Stores List Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/PickUpStores/?cityEN=Abha&districtEN=Al-Badeea&gps=26.3306806, 50.20401433&wasfaty=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"PickUpStores",
+						""
+					],
+					"query": [
+						{
+							"key": "cityEN",
+							"value": "Abha"
+						},
+						{
+							"key": "districtEN",
+							"value": "Al-Badeea"
+						},
+						{
+							"key": "gps",
+							"value": "26.3306806, 50.20401433"
+						},
+						{
+							"key": "wasfaty",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This API will return a list of the acitve Pick Up Stores. You either can filter by City or by City+District. or by gps\ninscase you seache by gps then City and District Paramters will be ignored and a list of pharmacies will return maximum 20 store within 20KM from GPS location"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Delivery Slots List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/DeliverySlots/?storeCode=E001&city=Dammam&distrct=Azzuhur&requestType=cash",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"DeliverySlots",
+						""
+					],
+					"query": [
+						{
+							"key": "storeCode",
+							"value": "E001"
+						},
+						{
+							"key": "city",
+							"value": "Dammam"
+						},
+						{
+							"key": "distrct",
+							"value": "Azzuhur"
+						},
+						{
+							"key": "requestType",
+							"value": "cash"
+						}
+					]
+				},
+				"description": "This API will return a list delivery slots dpending on the selected delivery store (the delivery store will comes from delivery city+delviery district compination)"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Delivery Slots List Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/DeliverySlots/?storeCode=E001&city=Dammam&distrct=Azzuhur&requestType=CASH",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"DeliverySlots",
+						""
+					],
+					"query": [
+						{
+							"key": "storeCode",
+							"value": "E001"
+						},
+						{
+							"key": "city",
+							"value": "Dammam"
+						},
+						{
+							"key": "distrct",
+							"value": "Azzuhur"
+						},
+						{
+							"key": "requestType",
+							"value": "CASH"
+						}
+					]
+				},
+				"description": "This API will return a list delivery slots dpending on the selected delivery store (the delivery store will comes from delivery city+delviery district compination)"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - CASH",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"paymentMethod\":\"CASH/ONLINE\",\n\t\"attachment1\":\"MANDOTARY BASE64\",\n\t\"attachment2\":\"NOT MANDOTARY BASE64\",\n\t\"attachment3\":\"NOT MANDOTARY BASE64\",\n\t\"title\":\"request title\",\n\t\"deliveryMethod\": \"D\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"\"\n\t\n}"
+				},
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestCash/",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestCash",
+						""
+					]
+				},
+				"description": "CASH REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - CASH Local",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"paymentMethod\":\"CASH/ONLINE\",\n\t\"attachment1\":\"MANDOTARY BASE64\",\n\t\"attachment2\":\"NOT MANDOTARY BASE64\",\n\t\"attachment3\":\"NOT MANDOTARY BASE64\",\n\t\"title\":\"request title\",\n\t\"deliveryMethod\": \"D\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestCash/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestCash",
+						""
+					]
+				},
+				"description": "CASH REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - INSURANCE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"Member\": {\n\t\t\t\"name\":\"Member 1\",\n\t\t\t\"nId\":\"2332334442\",\n\t\t\t\"insuranceCompanyId\":1\n\t},\n\t\"paymentMethod\":\"CASH/ONLINE\",\n\t\"attachment1\":\"MANDOTARY BASE64\",\n\t\"attachment2\":\"NOT MANDOTARY BASE64\",\n\t\"attachment3\":\"NOT MANDOTARY BASE64\",\n\t\"attachment4\":\"NOT MANDOTARY BASE64\",\n\t\"title\":\"request title\",\n\t\"deliveryMethod\": \"D\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"\"\n}"
+				},
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestInsurance/",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestInsurance",
+						""
+					]
+				},
+				"description": "INSURANCE REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - INSURANCE Local",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"member\": {\n\t\t\t\"name\":\"Member 1\",\n\t\t\t\"nId\":\"2332334442\",\n\t\t\t\"insuranceCompanyId\":1\n\t},\n\t\"paymentMethod\":\"CASH/ONLINE\",\n\t\"attachment1\":\"MANDOTARY BASE64\",\n\t\"attachment2\":\"NOT MANDOTARY BASE64\",\n\t\"attachment3\":\"NOT MANDOTARY BASE64\",\n\t\"attachment4\":\"NOT MANDOTARY BASE64\",\n\t\"title\":\"request title\",\n\t\"deliveryMethod\": \"D\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestInsurance/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestInsurance",
+						""
+					]
+				},
+				"description": "INSURANCE REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - EASY ORDER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"Items\": [\n\t\t{\n\t\t\t\"title\":\"item 1\",\n\t\t\t\"desc\":\"this is a desc for item 1\",\n\t\t\t\"photo\":\"base64\",\n\t\t\t\"qty\": 2\n\t\t},\n\t\t{\n\t\t\t\"title\":\"item 2\",\n\t\t\t\"desc\":\"this is a desc for item 2\",\n\t\t\t\"photo\":\"base64\",\n\t\t\t\"qty\": 6\n\t\t},\n\t\t{\n\t\t\t\"title\":\"item 3\",\n\t\t\t\"desc\":\"this is a desc for item 3\",\n\t\t\t\"photo\":\"base64\",\n\t\t\t\"qty\": 6\n\t\t}\n\t],\n\t\"deliveryMethod\": \"D\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"\"\n\t\n}"
+				},
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestEasyOrder/",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestEasyOrder",
+						""
+					]
+				},
+				"description": "EASY ORDER REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - EASY ORDER Local",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"items\": [\n\t\t{\n\t\t\t\"title\":\"item 1\",\n\t\t\t\"desc\":\"this is a desc for item 1\",\n\t\t\t\"photo\":\"base64\",\n\t\t\t\"qty\": 2\n\t\t},\n\t\t{\n\t\t\t\"title\":\"item 2\",\n\t\t\t\"desc\":\"this is a desc for item 2\",\n\t\t\t\"photo\":\"base64\",\n\t\t\t\"qty\": 6\n\t\t},\n\t\t{\n\t\t\t\"title\":\"item 3\",\n\t\t\t\"desc\":\"this is a desc for item 3\",\n\t\t\t\"photo\":\"base64\",\n\t\t\t\"qty\": 6\n\t\t}\n\t],\n\t\"deliveryMethod\": \"D\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestEasyOrder/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestEasyOrder",
+						""
+					]
+				},
+				"description": "EASY ORDER REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - HEALTH",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"nId\":\"1122334455\",\n\t\"prescriptionId\":\"1231234\",\n\t\"deliveryMethod\": \"C\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"0543371579\"\n\t\n}"
+				},
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestHealth/",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestHealth",
+						""
+					]
+				},
+				"description": "HAELTH REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - HEALTH Local",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"nId\":\"1122334455\",\n\t\"prescriptionId\":\"1231234\",\n\t\"deliveryMethod\": \"C\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"0543371579\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestHealth/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestHealth",
+						""
+					]
+				},
+				"description": "HAELTH REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - WASFATY",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"nId\":\"1122334455\",\n\t\"prescriptionId\":\"1231234\",\n\t\"deliveryMethod\": \"C\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"0543371579\"\n\t\n}"
+				},
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestWasfaty/",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestWasfaty",
+						""
+					]
+				},
+				"description": "HAELTH REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE REQUEST - WASFATY Local",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"customer\": {\n\t\t\t\"externalId\": 1,\n\t\t\t\"name\":\"Khalil Rumman\",\n\t\t\t\"mobileNumber\":\"0543371579\",\n\t\t\t\"email\":\"khalil.rumman@gmail.com\",\n\t\t\t\"gender\":\"M\"\n\t},\n\t\"address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"nId\":\"1122334455\",\n\t\"prescriptionId\":\"1231234\",\n\t\"deliveryMethod\": \"C\",\n\t\"deliverySlotDate\": \"2023-07-16\",\n\t\"deliverySlotTime\": \"08:00-10:00\",\n\t\"requestComments\": \"\",\n\t\"storeCode\": \"P456\",\n\t\"mobileNumber\": \"0543371579\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestWasfaty/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestWasfaty",
+						""
+					]
+				},
+				"description": "HAELTH REQUEST"
+			},
+			"response": []
+		},
+		{
+			"name": "CHECK WASFATY VALIDATOR",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"nId\":\"1122334455\",\n\t\"prescriptionId\":\"1231234\",\n\t\"City\": \"Dammam\",\n\t\"District\": \"Az Zuhur\",\n\t\"deliveryMethod\": \"C\"\n}"
+				},
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestWasfaty/Inquiry.php",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestWasfaty",
+						"Inquiry.php"
+					]
+				},
+				"description": "USE THIS API TO VAILDATE USER INPUT WHEN IT COMES TO NATIONAL ID & PRESPECTION NUMBER."
+			},
+			"response": []
+		},
+		{
+			"name": "CHECK WASFATY VALIDATOR Local",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"address\": {\n\t\t\t\"externalId\": 1, \n\t\t\t\"addressTitle\":\"HOME\",\n\t\t\t\"cityId\":\"this city id should by coming from delivery cities list api\",\n\t\t\t\"distrectId\":\"this city id should by coming from delivery distrcts list api\",\n\t\t\t\"street\":\"user input\",\n\t\t\t\"buildingNumber\": \"user input\",\n\t\t\t\"apartmentNumber\":\"user input\",\n\t\t\t\"mobileNumber\":\"user input\"\n\t},\n\t\"nId\":\"1122334455\",\n\t\"prescriptionId\":\"1231234\",\n\t\"City\": \"Dammam\",\n\t\"District\": \"Az Zuhur\",\n\t\"deliveryMethod\": \"C\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestWasfaty/Inquiry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestWasfaty",
+						"Inquiry"
+					]
+				},
+				"description": "USE THIS API TO VAILDATE USER INPUT WHEN IT COMES TO NATIONAL ID & PRESPECTION NUMBER."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Last Member Data for Insurance Request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://webservices.al-dawaa.com/InsuranceApi/RequestInsuranceLastMember/?customerExternalId=1",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"al-dawaa",
+						"com"
+					],
+					"path": [
+						"InsuranceApi",
+						"RequestInsuranceLastMember",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						}
+					]
+				},
+				"description": "USE THIS API TO GET THE LIST ENTERED MEMBER FOR INSURANCE REQEUSTS"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Last Member Data for Insurance Request Local",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientSecret",
+						"value": "S5RhkakGxUb5qTU647mNUKxDfXdYgqsvwotJvMMNgQIkQhisE5n4mWHoU"
+					},
+					{
+						"key": "ClientCode",
+						"value": "ECOMMERCE"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/aldawaaEprescriptionEasyOrder/RequestInsuranceLastMember/?customerExternalId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aldawaaEprescriptionEasyOrder",
+						"RequestInsuranceLastMember",
+						""
+					],
+					"query": [
+						{
+							"key": "customerExternalId",
+							"value": "1"
+						}
+					]
+				},
+				"description": "USE THIS API TO GET THE LIST ENTERED MEMBER FOR INSURANCE REQEUSTS"
+			},
+			"response": []
+		}
+	]
+}
